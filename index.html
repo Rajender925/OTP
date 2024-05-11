@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  #container {
+background-color: rgb(249, 247, 247);
+width: 400px;
+align-items: center;
+position: absolute;
+left: 500px;
+height: 380px;
+border-radius: 20px;
+box-shadow: 0px 0px 20px black;
+
+  }
+  #num1 {
+    position: absolute;
+    left: 90px;
+    height: 40px;
+    width: 250px;
+    top: 10px;
+    border-radius: 10px;
+    
+
+  }
+
+
+  #otp {
+    position: absolute;
+    left: 230px;
+    height: 30px;
+    width: 110px;
+    top: 60px;
+    border-radius: 10px;
+    background-color:rgb(182, 173, 192);
+    transition: 1s all;
+  }
+
+  #otp:hover {
+transform: scale(1.1);
+box-shadow: 0px 0px 20px black;
+
+  }
+
+#enter {
+    position: absolute;
+    left: 90px;
+    height: 40px;
+    width: 250px;
+    top: 100px;
+    border-radius: 10px;
+}
+  
+
+#submit {
+    position: absolute;
+    left: 90px;
+    height: 40px;
+    width: 100px;
+    top: 170px;
+    border-radius: 10px;  
+    transition: 1s all;
+    background-color: rgb(98, 106, 106);
+}
+
+
+#submit:hover {
+    transform: scale(1.2);
+    box-shadow: 0px 0px 20px rgb(17, 126, 56);
+  
+}
+
+#otpdiv{
+    position: absolute;
+    top: 240px;
+    left: 120px;
+    width: 200px;
+    height: 80px;
+   
+}
+    </style>
+</head >
+<body>
+   <div id="container">
+    <div>
+        
+    <input type="text" placeholder="Enter your Number" id="num1" value="+91" readonly>
+    </div><br>
+   
+    <div>
+        <button  id="otp">Generate OTP</button>
+    </div><br>
+    <div>
+        <input type="text" placeholder="enter OTP" id="enter">
+    </div><br>
+    
+    <div>
+        <button id="submit">Submit</button>
+    </div><br>
+    <div id="otpdiv"><h2 id="otpotp"></h1></div>
+
+    </div>
+
+    <script>
+       var otp; 
+
+var gen = document.getElementById("otp");
+gen.addEventListener("click", function() {
+    otp = Math.floor(Math.random() * 10000);
+    console.log(otp);
+    var divv=document.getElementById("otpotp");
+    divv.innerText="Your OTP is : "+otp
+    divv.style.textAlign="center"
+    var divvv=document.getElementById("otpdiv");
+    divvv.style.backgroundColor="rgb(221, 203, 203)"
+    divvv.style.borderRadius="20px";
+    divvv.style.boxShadow="0px 0px 20px black";
+});
+
+var sub = document.getElementById("submit");
+sub.addEventListener("click", function() {
+    var ent = document.getElementById("enter");
+    var b = parseInt(ent.value); 
+    console.log(b);
+
+    if (b === otp) {
+        window.location.assign("./portfolio.html");
+        alert("You Are Successfully Login to Portfolio Page");
+    } else {
+        alert("Please Enter Correct OTP");
+        window.location.assign("./09-24-2024 OTP.html")
+    }
+});
+    </script>
+
+</body>
+</html>
